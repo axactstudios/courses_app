@@ -1,15 +1,14 @@
 import 'package:coursesapp/Classes/constants.dart';
-import 'package:coursesapp/Screens/SignUp.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:regexed_validator/regexed_validator.dart';
 
-class LoginScreen extends StatefulWidget {
+class SignUpScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController _emailController = new TextEditingController(text: "");
   TextEditingController _passwordController =
@@ -26,8 +25,8 @@ class _LoginScreenState extends State<LoginScreen> {
             top: 0,
             left: 0,
             child: Container(
-              height: pHeight * 0.17,
-              width: pWidth * 0.35,
+              height: pHeight * 0.35,
+              width: pWidth * 0.17,
               decoration: BoxDecoration(
                 color: kPrimaryColor.withOpacity(0.9),
                 borderRadius: BorderRadius.only(
@@ -37,10 +36,38 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           Positioned(
+            top: 0,
+            right: 0,
+            child: Container(
+              height: pHeight * 0.35,
+              width: pWidth * 0.17,
+              decoration: BoxDecoration(
+                color: kPrimaryColor.withOpacity(0.9),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(pHeight * 0.3),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: Container(
+              height: pHeight * 0.08,
+              width: pWidth * 0.35,
+              decoration: BoxDecoration(
+                color: kPrimaryColor.withOpacity(0.8),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(pHeight * 0.3),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
             bottom: 0,
             right: 0,
             child: Container(
-              height: pHeight * 0.17,
+              height: pHeight * 0.08,
               width: pWidth * 0.35,
               decoration: BoxDecoration(
                 color: kPrimaryColor.withOpacity(0.8),
@@ -59,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'SIGN IN',
+                    'SIGN UP',
                     style: TextStyle(
                         fontFamily: 'Cabin',
                         color: kTextColor.withOpacity(0.6),
@@ -67,10 +94,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         letterSpacing: 5),
                   ),
                   SizedBox(
-                    height: pHeight * 0.02,
+                    height: pHeight * 0.03,
                   ),
                   Image.asset(
-                    'assets/images/login.png',
+                    'assets/images/signup.png',
                     height: pHeight * 0.2,
                   ),
                   SizedBox(
@@ -128,7 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         padding: const EdgeInsets.all(14.0),
                         child: Center(
                           child: Text(
-                            'SIGN IN',
+                            'SIGN UP',
                             style: TextStyle(
                                 fontFamily: 'Cabin',
                                 fontSize: 24,
@@ -140,124 +167,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: pHeight * 0.01,
-                  ),
-                  Column(
-                    children: <Widget>[
-                      InkWell(
-                        child: Text(
-                          'Forgot Password?',
-                          style: TextStyle(
-                            fontFamily: 'Cabin',
-                            color: kTextColor.withOpacity(0.4),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: pHeight * 0.04,
-                      ),
-                      InkWell(
-                        child: Text(
-                          'Skip this step',
-                          style: TextStyle(
-                            fontFamily: 'Cabin',
-                            color: kTextColor.withOpacity(0.4),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: pHeight * 0.04,
-                  ),
-                  Row(
-                    children: <Widget>[
-                      SizedBox(
-                        width: pWidth * 0.4,
-                        child: Divider(
-                          color: kTextColor.withOpacity(0.5),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'OR',
-                          style: TextStyle(
-                              fontFamily: 'Cabin',
-                              color: kTextColor.withOpacity(0.65),
-                              fontSize: 14),
-                        ),
-                      ),
-                      SizedBox(
-                        width: pWidth * 0.4,
-                        child: Divider(
-                          color: kTextColor.withOpacity(0.5),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: pHeight * 0.03,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      InkWell(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(pHeight * 0.5),
-                            border: Border.all(
-                              color: kTextColor.withOpacity(0.15),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Image.asset('assets/images/facebook.png'),
-                          ),
-                          height: pHeight * 0.05,
-                        ),
-                      ),
-                      InkWell(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(pHeight * 0.5),
-                            border: Border.all(
-                              color: kTextColor.withOpacity(0.15),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Image.asset(
-                                'assets/images/brands-and-logotypes.png'),
-                          ),
-                          height: pHeight * 0.05,
-                        ),
-                      ),
-                      InkWell(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(pHeight * 0.5),
-                            border: Border.all(
-                              color: kTextColor.withOpacity(0.15),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Image.asset('assets/images/phone.png'),
-                          ),
-                          height: pHeight * 0.05,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
                     height: pHeight * 0.08,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'New here?',
+                        'Have an account?',
                         style: TextStyle(
                             fontFamily: 'Cabin',
                             color: kTextColor.withOpacity(0.4),
@@ -268,15 +184,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SignUpScreen(),
-                            ),
-                          );
+                          Navigator.pop(context);
                         },
                         child: Text(
-                          'Sign Up',
+                          'Sign In',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Cabin',
