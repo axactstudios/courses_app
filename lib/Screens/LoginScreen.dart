@@ -1,4 +1,5 @@
 import 'package:coursesapp/Classes/constants.dart';
+import 'package:coursesapp/Other/NavigationBar.dart';
 import 'package:coursesapp/Screens/SignUp.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -118,6 +119,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: pHeight * 0.03,
                   ),
                   InkWell(
+                    onTap: () {
+                      if (_formKey.currentState.validate()) {
+                        print('Validated');
+                      }
+                    },
                     child: Container(
                       width: pWidth * 0.95,
                       decoration: BoxDecoration(
@@ -157,6 +163,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: pHeight * 0.04,
                       ),
                       InkWell(
+                        onTap: () => Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => NavBar(),
+                          ),
+                        ),
                         child: Text(
                           'Skip this step',
                           style: TextStyle(
