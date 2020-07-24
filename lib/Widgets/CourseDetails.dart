@@ -1,7 +1,9 @@
 import 'package:coursesapp/Classes/constants.dart';
 import 'package:coursesapp/Other/AppBar.dart';
+import 'file:///D:/Flutter%20Projects/courses_app/lib/Widgets/VideoScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 class CourseDetails extends StatefulWidget {
   String imgUrl, title;
@@ -40,8 +42,8 @@ class _CourseDetailsState extends State<CourseDetails> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Center(
-                        child: Image.network(
-                          widget.imgUrl,
+                        child: Image.asset(
+                          'assets/images/thumbnail.jpg',
                           height: pHeight * 0.2,
                           width: pWidth * 0.7,
                           fit: BoxFit.cover,
@@ -56,7 +58,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                             fontFamily: 'Cabin',
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
-                            fontSize: 26),
+                            fontSize: pHeight * 0.03),
                       ),
                       SizedBox(
                         height: pHeight * 0.008,
@@ -66,7 +68,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                         style: TextStyle(
                             fontFamily: 'Cabin',
                             color: Colors.white,
-                            fontSize: 16),
+                            fontSize: pHeight * 0.019),
                       ),
                       SizedBox(
                         height: pHeight * 0.01,
@@ -95,7 +97,8 @@ class _CourseDetailsState extends State<CourseDetails> {
                                   Text(
                                     '${widget.rating}',
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 13),
+                                        color: Colors.white,
+                                        fontSize: pHeight * 0.015),
                                   )
                                 ],
                               ),
@@ -126,7 +129,8 @@ class _CourseDetailsState extends State<CourseDetails> {
                                   Text(
                                     '${widget.ratings}',
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 13),
+                                        color: Colors.white,
+                                        fontSize: pHeight * 0.015),
                                   )
                                 ],
                               ),
@@ -157,7 +161,8 @@ class _CourseDetailsState extends State<CourseDetails> {
                                   Text(
                                     '17 total hours',
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 13),
+                                        color: Colors.white,
+                                        fontSize: pHeight * 0.015),
                                   )
                                 ],
                               ),
@@ -184,7 +189,8 @@ class _CourseDetailsState extends State<CourseDetails> {
                                   Text(
                                     'Created by Instructor\'s name',
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 12),
+                                        color: Colors.white,
+                                        fontSize: pHeight * 0.015),
                                   )
                                 ],
                               ),
@@ -207,7 +213,8 @@ class _CourseDetailsState extends State<CourseDetails> {
                                   Text(
                                     'Course Languages',
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 13),
+                                        color: Colors.white,
+                                        fontSize: pHeight * 0.015),
                                   )
                                 ],
                               ),
@@ -290,7 +297,6 @@ class _CourseDetailsState extends State<CourseDetails> {
                 elevation: 4,
                 child: Container(
                   width: pWidth * 0.98,
-                  height: pHeight * 0.3,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
@@ -301,7 +307,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                           'This course includes',
                           style: TextStyle(
                             fontFamily: 'Cabin',
-                            fontSize: 22,
+                            fontSize: pHeight * 0.027,
                             fontWeight: FontWeight.bold,
                             color: kTextColor.withOpacity(0.75),
                           ),
@@ -322,7 +328,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                               '17 total hours on-demand video',
                               style: TextStyle(
                                 fontFamily: 'Cabin',
-                                fontSize: 18,
+                                fontSize: pHeight * 0.02,
                                 color: kTextColor.withOpacity(0.6),
                               ),
                             ),
@@ -344,7 +350,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                               'Support files',
                               style: TextStyle(
                                 fontFamily: 'Cabin',
-                                fontSize: 18,
+                                fontSize: pHeight * 0.02,
                                 color: kTextColor.withOpacity(0.6),
                               ),
                             ),
@@ -366,7 +372,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                               'Articles',
                               style: TextStyle(
                                 fontFamily: 'Cabin',
-                                fontSize: 16,
+                                fontSize: pHeight * 0.02,
                                 color: kTextColor.withOpacity(0.6),
                               ),
                             ),
@@ -388,7 +394,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                               'Assignments',
                               style: TextStyle(
                                 fontFamily: 'Cabin',
-                                fontSize: 18,
+                                fontSize: pHeight * 0.02,
                                 color: kTextColor.withOpacity(0.6),
                               ),
                             ),
@@ -410,7 +416,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                               'Lifetime access',
                               style: TextStyle(
                                 fontFamily: 'Cabin',
-                                fontSize: 18,
+                                fontSize: pHeight * 0.02,
                                 color: kTextColor.withOpacity(0.6),
                               ),
                             ),
@@ -432,7 +438,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                               'Access anywhere',
                               style: TextStyle(
                                 fontFamily: 'Cabin',
-                                fontSize: 18,
+                                fontSize: pHeight * 0.02,
                                 color: kTextColor.withOpacity(0.6),
                               ),
                             ),
@@ -454,7 +460,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                               'Certificate of completion',
                               style: TextStyle(
                                 fontFamily: 'Cabin',
-                                fontSize: 18,
+                                fontSize: pHeight * 0.02,
                                 color: kTextColor.withOpacity(0.6),
                               ),
                             ),
@@ -470,7 +476,6 @@ class _CourseDetailsState extends State<CourseDetails> {
                 elevation: 4,
                 child: Container(
                   width: pWidth * 0.98,
-                  height: pHeight * 0.3,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
@@ -480,7 +485,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                           'What will you learn?',
                           style: TextStyle(
                             fontFamily: 'Cabin',
-                            fontSize: 22,
+                            fontSize: pHeight * 0.027,
                             fontWeight: FontWeight.bold,
                             color: kTextColor.withOpacity(0.75),
                           ),
@@ -492,7 +497,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                           'Here goes a 7-8 lines description of the course and will explain to the user how this course will benefit them and how it is more useful and beneficial than other similar courses out there. This will help you to attract students towards your courses and will encourage them to buy your course. Please explain in brief all the good features and great teaching techniques that you have used in your course which will help the student understand the complex concepts easily. Please spend some time framing this small description as it will play a key role in increasing the sales of your course.',
                           style: TextStyle(
                             fontFamily: 'Cabin',
-                            fontSize: 18,
+                            fontSize: pHeight * 0.02,
                             color: kTextColor.withOpacity(0.6),
                           ),
                         ),
@@ -501,6 +506,318 @@ class _CourseDetailsState extends State<CourseDetails> {
                   ),
                 ),
               ),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: pWidth * 0.98,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'Video List',
+                          style: TextStyle(
+                            fontFamily: 'Cabin',
+                            fontSize: pHeight * 0.027,
+                            fontWeight: FontWeight.bold,
+                            color: kTextColor.withOpacity(0.75),
+                          ),
+                        ),
+                        SizedBox(
+                          height: pHeight * 0.005,
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: pWidth * 0.96,
+                              child: InkWell(
+                                onTap: () {
+                                  pushNewScreen(
+                                    context,
+                                    screen: VideoScreen(
+                                      title: 'Video title 1',
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'Video title 1',
+                                  style: TextStyle(
+                                    fontFamily: 'Cabin',
+                                    fontSize: pHeight * 0.02,
+                                    color: kTextColor.withOpacity(0.6),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: pHeight * 0.002,
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: pWidth * 0.96,
+                              child: InkWell(
+                                onTap: () {
+                                  pushNewScreen(
+                                    context,
+                                    screen: VideoScreen(
+                                      title: 'Video title 2',
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'Video title 2',
+                                  style: TextStyle(
+                                    fontFamily: 'Cabin',
+                                    fontSize: pHeight * 0.02,
+                                    color: kTextColor.withOpacity(0.6),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: pHeight * 0.002,
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: pWidth * 0.96,
+                              child: InkWell(
+                                onTap: () {
+                                  pushNewScreen(
+                                    context,
+                                    screen: VideoScreen(
+                                      title: 'Video title 3',
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'Video title 3',
+                                  style: TextStyle(
+                                    fontFamily: 'Cabin',
+                                    fontSize: pHeight * 0.02,
+                                    color: kTextColor.withOpacity(0.6),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: pHeight * 0.002,
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: pWidth * 0.96,
+                              child: InkWell(
+                                onTap: () {
+                                  pushNewScreen(
+                                    context,
+                                    screen: VideoScreen(
+                                      title: 'Video title 4',
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'Video title 4',
+                                  style: TextStyle(
+                                    fontFamily: 'Cabin',
+                                    fontSize: pHeight * 0.02,
+                                    color: kTextColor.withOpacity(0.6),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: pHeight * 0.002,
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: pWidth * 0.96,
+                              child: InkWell(
+                                onTap: () {
+                                  pushNewScreen(
+                                    context,
+                                    screen: VideoScreen(
+                                      title: 'Video title 5',
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'Video title 5',
+                                  style: TextStyle(
+                                    fontFamily: 'Cabin',
+                                    fontSize: pHeight * 0.02,
+                                    color: kTextColor.withOpacity(0.6),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: pHeight * 0.002,
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: pWidth * 0.96,
+                              child: InkWell(
+                                onTap: () {
+                                  pushNewScreen(
+                                    context,
+                                    screen: VideoScreen(
+                                      title: 'Video title 6',
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'Video title 6',
+                                  style: TextStyle(
+                                    fontFamily: 'Cabin',
+                                    fontSize: pHeight * 0.02,
+                                    color: kTextColor.withOpacity(0.6),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: pHeight * 0.002,
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: pWidth * 0.96,
+                              child: InkWell(
+                                onTap: () {
+                                  pushNewScreen(
+                                    context,
+                                    screen: VideoScreen(
+                                      title: 'Video title 7',
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'Video title 7',
+                                  style: TextStyle(
+                                    fontFamily: 'Cabin',
+                                    fontSize: pHeight * 0.02,
+                                    color: kTextColor.withOpacity(0.6),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: pHeight * 0.002,
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: pWidth * 0.96,
+                              child: InkWell(
+                                onTap: () {
+                                  pushNewScreen(
+                                    context,
+                                    screen: VideoScreen(
+                                      title: 'Video title 8',
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'Video title 8',
+                                  style: TextStyle(
+                                    fontFamily: 'Cabin',
+                                    fontSize: pHeight * 0.02,
+                                    color: kTextColor.withOpacity(0.6),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: pHeight * 0.002,
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: pWidth * 0.96,
+                              child: InkWell(
+                                onTap: () {
+                                  pushNewScreen(
+                                    context,
+                                    screen: VideoScreen(
+                                      title: 'Video title 9',
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'Video title 9',
+                                  style: TextStyle(
+                                    fontFamily: 'Cabin',
+                                    fontSize: pHeight * 0.02,
+                                    color: kTextColor.withOpacity(0.6),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: pHeight * 0.002,
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: pWidth * 0.96,
+                              child: InkWell(
+                                onTap: () {
+                                  pushNewScreen(
+                                    context,
+                                    screen: VideoScreen(
+                                      title: 'Video title 10',
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'Video title 10',
+                                  style: TextStyle(
+                                    fontFamily: 'Cabin',
+                                    fontSize: pHeight * 0.02,
+                                    color: kTextColor.withOpacity(0.6),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),

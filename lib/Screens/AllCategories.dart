@@ -1,6 +1,8 @@
 import 'package:coursesapp/Classes/constants.dart';
 import 'package:coursesapp/Other/AppBar.dart';
+import 'package:coursesapp/Screens/CategoryCourses.dart';
 import 'package:flutter/material.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 class AllCategories extends StatefulWidget {
   List<String> allCategories = [];
@@ -25,7 +27,10 @@ class _AllCategoriesState extends State<AllCategories> {
               padding: const EdgeInsets.only(top: 5.0),
               child: InkWell(
                 onTap: () {
-                  print('$item Tapped');
+                  pushNewScreen(
+                    context,
+                    screen: CategoryCourses(),
+                  );
                 },
                 child: Container(
                   margin: EdgeInsets.only(top: 10, left: 20, bottom: 15),
@@ -36,7 +41,7 @@ class _AllCategoriesState extends State<AllCategories> {
                         item,
                         style: TextStyle(
                           fontFamily: 'Cabin',
-                          fontSize: 15,
+                          fontSize: pHeight * 0.018,
                           color: kTextColor.withOpacity(0.7),
                         ),
                       ),
