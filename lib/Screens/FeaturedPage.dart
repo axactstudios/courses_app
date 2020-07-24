@@ -1,10 +1,14 @@
 import 'package:coursesapp/Classes/constants.dart';
 import 'package:coursesapp/Other/AppBar.dart';
 import 'package:coursesapp/Screens/AllCategories.dart';
+import 'package:coursesapp/Screens/CategoryCourses.dart';
 import 'package:coursesapp/Widgets/CourseDetails.dart';
 import 'package:coursesapp/Widgets/CourseTile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+
+import 'AllCourses.dart';
 
 class Featured extends StatefulWidget {
   @override
@@ -91,22 +95,27 @@ class _FeaturedState extends State<Featured> {
                       itemBuilder: (BuildContext context, index) {
                         var item = categories[index];
 
-                        return Container(
-                          margin: EdgeInsets.only(right: 10),
-                          decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(
-                              color: kTextColor.withOpacity(0.1),
+                        return InkWell(
+                          onTap: () {
+                            pushNewScreen(context, screen: CategoryCourses());
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(right: 10),
+                            decoration: BoxDecoration(
+                              color: Colors.grey.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                color: kTextColor.withOpacity(0.1),
+                              ),
                             ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Text(
-                              item,
-                              style: TextStyle(
-                                  fontFamily: 'Cabin',
-                                  fontSize: pHeight * 0.02),
+                            child: Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Text(
+                                item,
+                                style: TextStyle(
+                                    fontFamily: 'Cabin',
+                                    fontSize: pHeight * 0.02),
+                              ),
                             ),
                           ),
                         );
@@ -394,13 +403,39 @@ class _FeaturedState extends State<Featured> {
                 SizedBox(
                   height: pHeight * 0.02,
                 ),
-                Text(
-                  'Top courses in ${categories[3]}',
-                  style: TextStyle(
-                      fontFamily: 'Cabin',
-                      color: kTextColor.withOpacity(0.75),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      'Top courses in ${categories[3]}',
+                      style: TextStyle(
+                          fontFamily: 'Cabin',
+                          color: kTextColor.withOpacity(0.75),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AllCourses(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          'SEE ALL',
+                          style: TextStyle(
+                              fontFamily: 'Cabin',
+                              color: kTextColor.withOpacity(0.5),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: pHeight * 0.015,

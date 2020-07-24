@@ -22,8 +22,8 @@ class _CourseTileState extends State<CourseTile> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Image.network(
-            widget.imgUrl,
+          Image.asset(
+            'assets/images/thumbnail.jpg',
             height: pHeight * 0.18,
             width: pWidth * 0.6,
             fit: BoxFit.cover,
@@ -33,7 +33,7 @@ class _CourseTileState extends State<CourseTile> {
             style: TextStyle(
                 fontFamily: 'Cabin',
                 color: kTextColor.withOpacity(0.6),
-                fontSize: 18),
+                fontSize: pHeight * 0.022),
           ),
           Row(
             children: <Widget>[
@@ -42,7 +42,7 @@ class _CourseTileState extends State<CourseTile> {
                 style: TextStyle(
                     fontFamily: 'Cabin',
                     color: kTextColor.withOpacity(0.45),
-                    fontSize: 14),
+                    fontSize: pHeight * 0.016),
               ),
             ],
           ),
@@ -51,7 +51,7 @@ class _CourseTileState extends State<CourseTile> {
             style: TextStyle(
                 fontFamily: 'Cabin',
                 color: kTextColor.withOpacity(0.45),
-                fontSize: 14),
+                fontSize: pHeight * 0.016),
           )
         ],
       ),
